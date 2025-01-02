@@ -1,0 +1,8 @@
+{
+  "name": "listmas",
+  "version": "1.0.0",
+  "description": "listmas",
+  "dependencies": {
+    "axios": "^1.7.9"
+  }
+}
