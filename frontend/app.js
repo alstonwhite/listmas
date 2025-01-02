@@ -28,7 +28,7 @@ sortedKeys.forEach((year, index) => {
 });
 
 // Extract the path from the URL
-const year = window.location.pathname.split("/")[1];
+const year = window.location.pathname.split("/")[1] || sortedKeys[0];
 console.log("full pathname", window.location.pathname.split("/"));
 
 // If a year is accessed, fetch and display the playlist
@@ -45,7 +45,8 @@ if (year) {
     playlistContent.appendChild(spotifyLink);
 
     // Fetch and display playlist data
-    fetch(`/api/playlist/${playlistId}`)
+    // fetch(`/api/playlist/${playlistId}`) // For local testing with node
+    fetch(`/.netlify/functions/server/${playlistId}`) // For deployment with netlify
       .then((response) => {
         if (!response.ok) {
           throw new Error(`Error fetching playlist: ${response.statusText}`);

@@ -1,0 +1,8 @@
+[build]
+  functions = "netlify/functions"
+  publish = "frontend"
+
+[[redirects]]
+  from = "/api/playlist/*"
+  to = "/.netlify/functions/server/:splat"
+  status = 200
